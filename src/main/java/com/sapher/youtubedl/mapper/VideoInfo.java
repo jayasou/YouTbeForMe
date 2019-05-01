@@ -44,4 +44,7 @@ public class VideoInfo {
     public ArrayList<VideoFormat> formats;
     public ArrayList<VideoThumbnail> thumbnails;
     //public ArrayList<VideoSubtitle> subtitles;
+
+
+
 }

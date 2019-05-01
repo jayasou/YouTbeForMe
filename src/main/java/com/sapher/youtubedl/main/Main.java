@@ -1,41 +1,26 @@
 package com.sapher.youtubedl.main;
 
-import java.io.File;
+import java.util.List;
 
-import com.sapher.youtubedl.DownloadProgressCallback;
-import com.sapher.youtubedl.YoutubeDL;
+import com.sapher.manageApp.DownloadVideo;
+import com.sapher.manageApp.WebCrawler;
 import com.sapher.youtubedl.YoutubeDLException;
-import com.sapher.youtubedl.YoutubeDLRequest;
-import com.sapher.youtubedl.YoutubeDLResponse;
 
 public class Main {
-	public static void main(String[] args) throws YoutubeDLException {
-		// Video url to download
-		String videoUrl = "https://www.youtube.com/watch?v=yQyTdZiNugY";
+	public static void main(String[] args) {
 
-		// Build request
-		YoutubeDL.setExecutablePath("/usr/local/bin/youtube-dl");
-		YoutubeDLRequest request = new YoutubeDLRequest(videoUrl, "/Users/jisu/Downloads");
-		request.setOption("ignore-errors");		// --ignore-errors
-		request.setOption("output", "%(id)s");	// --output "%(id)s"
-		request.setOption("retries", 10);		// --retries 10
+		WebCrawler crawler = new WebCrawler();
+		List<String> videoList = crawler.webCrawling("https://www.youtube.com/playlist?list=PLuHgQVnccGMBe0848t2_ZUgFNJdanOA_I");
 
-		// Make request and return response
-//		YoutubeDLResponse response = YoutubeDL.execute(request);
-		YoutubeDLResponse response = YoutubeDL.execute(request, new DownloadProgressCallback() {
-	          @Override
-	          public void onProgressUpdate(float progress, long etaInSeconds) {
-	              System.out.println(String.valueOf(progress) + "%");
-	          }
-	      });
-		
-		File chkFile = new File("/Users/jisu/Downloads/yQyTdZiNugY");
-		if(chkFile.exists()) {
-			System.out.println("exist !!");
-			chkFile.renameTo(new File("/Users/jisu/Downloads/yQyTdZiNugY.mp4"));
-		}
 
-		// Response
-		String stdOut = response.getOut(); // Executable output
+		DownloadVideo dv = new DownloadVideo("/Users/jisu/Downloads/testDown/");
+		videoList.stream().forEach((s) -> {
+			try {
+				dv.download(s);
+			} catch (YoutubeDLException e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		});
 	}
 }
