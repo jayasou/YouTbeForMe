@@ -9,11 +9,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class WebCrawler {
 
-
-    public List<String> webCrawling(String channelUrl) {
-//        String url = "https://www.youtube.com/playlist?list=PLuHgQVnccGMAp9YSO2J5VBWLJewTPn_0_";
+    public static List<String> webCrawling(String channelUrl) {
 
         Document doc = null;
         try {
@@ -24,6 +23,7 @@ public class WebCrawler {
             return null;
         }
 
+
         String query = "table .pl-video .pl-video-thumbnail .yt-uix-sessionlink";
         Elements elements = doc.select(query);
 
@@ -33,8 +33,8 @@ public class WebCrawler {
                     element.attr("href").split("&")[0]);
         }
 
-        videoList.stream().forEach(System.out::println);
 
+//        videoList.stream().forEach(System.out::println);
         return videoList;
     }
 }
