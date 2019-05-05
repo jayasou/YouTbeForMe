@@ -22,7 +22,7 @@ public class WebCrawler {
             System.out.println(e.getLocalizedMessage());
             return null;
         }
-
+//        System.out.println(doc.toString());
 
         String query = "table .pl-video .pl-video-thumbnail .yt-uix-sessionlink";
         Elements elements = doc.select(query);

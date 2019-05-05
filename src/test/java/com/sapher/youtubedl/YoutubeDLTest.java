@@ -14,7 +14,7 @@ public class YoutubeDLTest {
     private final static String VIDEO_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
     private final static String NONE_EXISTENT_VIDEO_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcZ";
 
-    @Test
+    /*@Test
     public void testUsingOwnExecutablePath() throws YoutubeDLException {
         YoutubeDL.setExecutablePath("/usr/local/bin/youtube-dl");
         Assert.assertNotNull(YoutubeDL.getVersion());
@@ -62,15 +62,31 @@ public class YoutubeDLTest {
         YoutubeDLResponse response = YoutubeDL.execute(request);
 
         Assert.assertEquals(DIRECTORY, response.getDirectory());
-    }
+    }*/
 
     @Test
     public void testGetVideoInfo() throws YoutubeDLException {
-        VideoInfo videoInfo = YoutubeDL.getVideoInfo(VIDEO_URL);
+        YoutubeDL.setExecutablePath("/usr/local/bin/youtube-dl");
+        VideoInfo videoInfo = YoutubeDL.getVideoInfo("https://www.youtube.com/watch?v=7cR8rOx-f3A");
+
+        System.out.println("title : "  + videoInfo.title);
+        System.out.println("discription : " +videoInfo.description);
+        System.out.println("duration : "  + videoInfo.duration);
+        System.out.println("ext : "  + videoInfo.ext);
+        System.out.println("format : "  + videoInfo.format);
+        System.out.println("thumbnail : "  + videoInfo.thumbnail);
+        System.out.println("httpHeader : "  + videoInfo.httpHeader);
+        System.out.println("resolution : "  + videoInfo.resolution);
+        System.out.println("fulltitle : "  + videoInfo.fulltitle);
+        System.out.println("width : "  + videoInfo.width);
+        System.out.println("height : "  + videoInfo.height);
+
+
+
         Assert.assertNotNull(videoInfo);
     }
 
-    @Test
+    /*@Test
     public void testGetFormats() throws YoutubeDLException {
         List<VideoFormat> formats = YoutubeDL.getFormats(VIDEO_URL);
         Assert.assertNotNull(formats);
@@ -101,5 +117,5 @@ public class YoutubeDLTest {
     @Test(expected = YoutubeDLException.class)
     public void testFailGetNonExistentVideoInfo() throws YoutubeDLException {
         YoutubeDL.getVideoInfo(NONE_EXISTENT_VIDEO_URL);
-    }
+    }*/
 }

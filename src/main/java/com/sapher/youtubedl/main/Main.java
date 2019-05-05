@@ -16,19 +16,19 @@ public class Main {
 		String url = "https://www.youtube.com" +
 		"/playlist?list=PLuHgQVnccGMBe0848t2_ZUgFNJdanOA_I";
 
-		String url2 = "https://www.youtube.com/watch?v=-VRfO2hlf54&list=PLuHgQVnccGMBe0848t2_ZUgFNJdanOA_I&index=2&t=0s";
+		/*String url2 = "https://www.youtube.com/watch?v=-VRfO2hlf54&list=PLuHgQVnccGMBe0848t2_ZUgFNJdanOA_I&index=2&t=0s";
 
 		VideoInfo info = YoutubeDL.getVideoInfo(url2);
 
 		System.out.println(info.getClass().getName());
 		System.out.println(info.title.getClass().getName());
 		System.out.println(info.title.toString().getClass().getName());
+*/
 
 
 
 
-
-		/*List<VideoInfo> videoInfos = new ArrayList<>();
+		List<VideoInfo> videoInfos = new ArrayList<>();
 		if(url.contains("playlist")) {
 			List<String> urlList = WebCrawler.webCrawling(url);
 
@@ -40,7 +40,7 @@ public class Main {
 		}
 
 
-		videoInfos.forEach(
+		/*videoInfos.forEach(
 				(videoInfo -> System.out.println(videoInfo.title))
 		);*/
 		/*DownloadVideo dv = new DownloadVideo("/Users/jisu/Downloads/testDown/");
