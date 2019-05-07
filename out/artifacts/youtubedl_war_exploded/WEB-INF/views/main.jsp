@@ -1,107 +1,100 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html lang="ko">
+<!DOCTYPE HTML>
+<!--
+Urban by TEMPLATED
+templated.co @templatedco
+Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
 <head>
-    <title>Home</title>
+    <title>DOWNLOAD YOUTUBE</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/resources/assets/css/main.css"/>
 </head>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script>
+<body class="subpage">
 
-    function print(data) {
-        alert('에?!');
-        var tbody = $('#tbody');
-        $(data).each(function () {
-            var tr = $('<tr></tr>');
+<!-- Header -->
+<header id="header">
+    <div class="logo"><a href="index.html">Urban <span>by TEMPLATED</span></a></div>
+    <a href="#menu">Menu</a>
+</header>
 
-            var td = $('<td></td>');
-            var td2 = $('<td></td>');
-            var td3 = $('<td></td>');
-             var p = $('<p></p>').text(this.title);
-             var p2 = $('<p></p>').text(this.duration);
-             var p3 = $('<p></p>').text(this.format);
+<!-- Nav -->
+<nav id="menu">
+    <ul class="links">
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="generic.jsp">Generic</a></li>
+        <li><a href="elements.jsp">Elements</a></li>
+    </ul>
+</nav>
 
+<!-- Main -->
+<div id="main">
+    <section class="wrapper style1">
+        <div class="inner">
 
+            <header class="align-center">
+                <h1>DOWNLOAD YOUTUBE</h1>
+                <p>I really want to download it !</p>
+            </header>
+            <div class="row 200%">
+                <div class="4u$ 12u$(medium)">
+                    <div class="row uniform">
+                        <!-- Break -->
+                        <div class="12u$">
+                            <div class="select-wrapper" style="margin-bottom: 30px;">
+                                <select name="category" id="category">
+                                    <option value="">- Category -</option>
+                                    <option value="1">Manufacturing</option>
+                                    <option value="1">Shipping</option>
+                                    <option value="1">Administration</option>
+                                    <option value="1">Human Resources</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-             td.append(p);
-             tr.append(td);
+            <div class="row">
+                <div class="6u 12u$(medium)" style="margin-bottom: 30px; margin-right: 30px;">
+                    <input type="text" name="query" id="query" value="https://www.youtube.com/playlist?list=PLuHgQVnccGMBe0848t2_ZUgFNJdanOA_I" placeholder="Input Youtube URL"/>
+                </div>
+                <a href="#" class="actions button alt" id="download">Download</a>
+            </div>
 
-             td2.append(p2);
-             tr.append(td2);
-
-             td3.append(p3);
-             tr.append(td3);
-             tbody.append(tr);
-        });
-
-    }
-
-    function ajaxSubmit(actURL,params) {
-        $.ajax({
-            url : actURL  ,type : 'POST' ,dataType : 'json' , data : {param : JSON.stringify(params) },
-            beforeSend : function(data){
-                console.log("ajaxSubmit.params = " + data);
-
-                $('.wrap-loading').show();
-                $('.wrap-loading').css('zIndex',100);
-            },
-            success : function(data){
-                $('.wrap-loading').hide();
-                $('.wrap-loading').css('zIndex',-100);
-                console.log(data);
-                print(data);
-
-            }
-            ,error : function(request, status, error){
-                $('.wrap-loading').hide();
-                $('.wrap-loading').css('zIndex',-100);
-                alert("자료 처리중 오류가 발생하였습니다.\n응답코드 = " + request.status);
-                alert("Error:\n\t" + error.message + "\nLine:\n\t" + error.lineno + "\nFile:\n\t" + error.filename);
-            }
-        });
-    }
-
-    $(document).ready(function() {
-
-        var showBtn = $('#showList');
-        showBtn.click(function() {
-            var youtubeUrl = $('#url').val();
-console.log(youtubeUrl);
+            <div class="row 200%" id="content">
 
 
+            </div>
+        </div>
 
-           ajaxSubmit("/getVideoList", youtubeUrl);
-        });
-    });
 
-</script>
-<body>
-<p>https://www.youtube.com/playlist?list=PLuHgQVnccGMBe0848t2_ZUgFNJdanOA_I</p>
-<div>
- <input type="text" id="url" class="url" name="url"/>
-    <input type="button" id="showList" />
+    </section>
 </div>
 
+<!-- Footer -->
+<footer id="footer">
+    <div class="copyright">
+        <%--<ul class="icons">--%>
+        <%--<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>--%>
+        <%--<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>--%>
+        <%--<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>--%>
+        <%--<li><a href="#" class="icon fa-snapchat"><span class="label">Snapchat</span></a></li>--%>
+        <%--</ul>--%>
+        <p>&copy; Untitled. All rights reserved. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a
+                href="https://unsplash.com">Unsplash</a>.</p>
+    </div>
+</footer>
 
-<div>
-    <table>
-        <thead>
-        <tr>
-            <th>TITLE</th>
-            <th>DURATION</th>
-            <th>FORMAT</th>
-        </tr>
-        </thead>
-
-        <tbody id="tbody" class="tbody" name="tbody">
-            <tr><td><p id="pid">Hello ~~~ </p></td></tr>
-        </tbody>
-    </table>
-</div>
-
-
+<!-- Scripts -->
+<script src="/resources/assets/js/jquery.min.js"></script>
+<script src="/resources/assets/js/jquery.scrolly.min.js"></script>
+<script src="/resources/assets/js/jquery.scrollex.min.js"></script>
+<script src="/resources/assets/js/skel.min.js"></script>
+<script src="/resources/assets/js/util.js"></script>
+<script src="/resources/assets/js/main.js"></script>
+<script src="/resources/mainJS.js"></script>
 
 </body>
 </html>
