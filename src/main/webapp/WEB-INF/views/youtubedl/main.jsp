@@ -9,7 +9,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     <title>DOWNLOAD YOUTUBE</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="/resources/assets/css/main.css"/>
+    <link rel="stylesheet" href="/youtubedl/resources/assets/css/main.css"/>
 </head>
 <body class="subpage">
 
@@ -88,13 +88,13 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 </footer>
 
 <!-- Scripts -->
-<script src="/resources/assets/js/jquery.min.js"></script>
-<script src="/resources/assets/js/jquery.scrolly.min.js"></script>
-<script src="/resources/assets/js/jquery.scrollex.min.js"></script>
-<script src="/resources/assets/js/skel.min.js"></script>
-<script src="/resources/assets/js/util.js"></script>
-<script src="/resources/assets/js/main.js"></script>
-<script src="/resources/mainJS.js"></script>
+<script src="/youtubedl/resources/assets/js/jquery.min.js"></script>
+<script src="/youtubedl/resources/assets/js/jquery.scrolly.min.js"></script>
+<script src="/youtubedl/resources/assets/js/jquery.scrollex.min.js"></script>
+<script src="/youtubedl/resources/assets/js/skel.min.js"></script>
+<script src="/youtubedl/resources/assets/js/util.js"></script>
+<script src="/youtubedl/resources/assets/js/main.js"></script>
+<script src="/youtubedl/resources/mainJS.js"></script>
 
 </body>
 </html>

@@ -3,14 +3,14 @@ function getVideoInfoList() {
 
     $.ajax({
         type: "POST",
-        url : "/getVideoList",
+        url : "/youtubedl/getVideoList",
         data : {url : inputURL},
         success: function(data) {
             console.log(JSON.stringify(data));
             print(data);
         },
-        error : function() {
-
+        error:function(request,status,error){
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
         }
     });
 }
