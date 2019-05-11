@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface YutbeDownService {
 
-    List<VideoInfo> youtubeDownload(String url) throws YoutubeDLException;
+    List<VideoInfo> getVideoList(String url) throws YoutubeDLException;
 
 }

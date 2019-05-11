@@ -1,3 +1,31 @@
+
+$('#list').on("click", function(e){
+    getVideoInfoList();
+});
+
+$('#download').on("click", function() {
+   var str = {};
+
+    $('input:checkbox:checked').each(function(){
+        str.id = $(this).val();
+    });
+
+    alert(str);
+
+    $.ajax({
+        type: "POST",
+        url : "/youtubedl/download",
+        data : {videoID : JSON.stringify(str)},
+        success: function() {
+            alert("Complete Download");
+        },
+        error:function(request,status,error){
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        }
+    });
+});
+
+
 function getVideoInfoList() {
     var inputURL = $('#query').val();
 
@@ -15,10 +43,6 @@ function getVideoInfoList() {
     });
 }
 
-$('.actions').on("click", function(e){
-    getVideoInfoList();
-})
-
 
 function print(data) {
     $(data).each(function () {
@@ -31,7 +55,7 @@ function print(data) {
         var h3 = $('<h3></h3>').append(this.title);
         var p = $('<p></p>').append(this.description);
         var input = $('<input></input>').attr('type', 'checkbox')
-            .attr('id', this.id).attr('name', this.id);
+            .attr('id', this.id).attr('name', this.id).attr('value', this.id);
         var label = $('<label></label>').attr('for', this.id).append('I GOT IT');
 
         divCol2.append(h3);

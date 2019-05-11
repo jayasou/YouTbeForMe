@@ -14,32 +14,18 @@ import java.util.function.Predicate;
 public class YutbeDownServiceImpl implements YutbeDownService {
 
     @Override
-    public List<VideoInfo> youtubeDownload(String url) throws YoutubeDLException, IndexOutOfBoundsException {
+    public List<VideoInfo> getVideoList(String url) throws YoutubeDLException, IndexOutOfBoundsException {
         System.out.println("channer : " + url);
 
-        List<VideoInfo> videoInfos = new ArrayList<>();
+        List<VideoInfo> videoInfos = new ArrayList();
 
-           if (url.contains("playlist")) {
-                List<String> urlList = WebCrawler.webCrawling(url);
-                for (String URL : urlList) {
-                    videoInfos.add(YoutubeDL.getVideoInfo(URL));
-                }
-                return videoInfos;
-
-//
-//            urlList.forEach(
-//                    (URL) -> {
-//                        try {
-//                            videoInfos.add(YoutubeDL.getVideoInfo(URL));
-//                        } catch (YoutubeDLException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//            );
-
+        if (url.contains("list")) {
+            List<String> urlList = WebCrawler.webCrawling(url);
+            for (String URL : urlList) {
+                videoInfos.add(YoutubeDL.getVideoInfo(URL));
             }
-
-
+            return videoInfos;
+        }
         return null;
     }
 }

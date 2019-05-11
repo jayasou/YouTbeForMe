@@ -10,7 +10,12 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="/resources/assets/css/main.css"/>
+
+
+
 </head>
+
+
 <body class="subpage">
 
 <!-- Header -->
@@ -60,7 +65,8 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
                 <div class="6u 12u$(medium)" style="margin-bottom: 30px; margin-right: 30px;">
                     <input type="text" name="query" id="query" value="https://www.youtube.com/playlist?list=PLuHgQVnccGMBe0848t2_ZUgFNJdanOA_I" placeholder="Input Youtube URL"/>
                 </div>
-                <a href="#" class="actions button alt" id="download">Download</a>
+                <a href="#" class="actions button alt">List</a>
+
             </div>
 
             <div class="row 200%" id="content">

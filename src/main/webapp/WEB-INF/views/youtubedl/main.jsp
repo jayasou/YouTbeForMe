@@ -60,6 +60,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
                 <div class="6u 12u$(medium)" style="margin-bottom: 30px; margin-right: 30px;">
                     <input type="text" name="query" id="query" value="https://www.youtube.com/playlist?list=PLuHgQVnccGMBe0848t2_ZUgFNJdanOA_I" placeholder="Input Youtube URL"/>
                 </div>
+                <a href="#" class="actions button alt" id="list">LIST</a>
                 <a href="#" class="actions button alt" id="download">Download</a>
             </div>
 

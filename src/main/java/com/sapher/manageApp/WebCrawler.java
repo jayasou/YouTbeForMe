@@ -27,7 +27,7 @@ public class WebCrawler {
         String query = "table .pl-video .pl-video-thumbnail .yt-uix-sessionlink";
         Elements elements = doc.select(query);
 
-        List<String> videoList = new ArrayList<>();
+        List<String> videoList = new ArrayList();
         for(Element element : elements) {
             videoList.add("https://www.youtube.com" +
                     element.attr("href").split("&")[0]);

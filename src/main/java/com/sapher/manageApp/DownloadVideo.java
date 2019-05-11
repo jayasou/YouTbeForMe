@@ -12,7 +12,10 @@ public class DownloadVideo {
 
     private static String directory;
 
-    public DownloadVideo(String directory) {
+    private static YoutubeDLRequest youtubeDLRequest;
+
+    public DownloadVideo(String videoUrl, String directory) {
+        this.youtubeDLRequest = new YoutubeDLRequest(videoUrl, directory);
         this.directory = directory;
     }
 
@@ -20,13 +23,12 @@ public class DownloadVideo {
 
         // Build request
         YoutubeDL.setExecutablePath("/usr/local/bin/youtube-dl");
-        YoutubeDLRequest request = new YoutubeDLRequest(videoUrl, directory);
-        request.setOption("ignore-errors");		// --ignore-errors
-        request.setOption("output", "%(id)s");	// --output "%(id)s"
-        request.setOption("retries", 10);		// --retries 10
+        youtubeDLRequest.setOption("ignore-errors");		// --ignore-errors
+        youtubeDLRequest.setOption("output", "%(id)s");	// --output "%(id)s"
+        youtubeDLRequest.setOption("retries", 10);		// --retries 10
 
         // Make request and return response
-        YoutubeDLResponse response = YoutubeDL.execute(request);
+        YoutubeDLResponse response = YoutubeDL.execute(youtubeDLRequest);
 		/*YoutubeDLResponse response = YoutubeDL.execute(request, new DownloadProgressCallback() {
 	          @Override
 	          public void onProgressUpdate(float progress, long etaInSeconds) {
