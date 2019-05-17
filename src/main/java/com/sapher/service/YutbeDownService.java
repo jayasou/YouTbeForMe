@@ -9,4 +9,7 @@ public interface YutbeDownService {
 
     List<VideoInfo> getVideoList(String url) throws YoutubeDLException;
 
+    String getDownloadPath();
+
+    void download(List<String> url, String downloadPath);
 }

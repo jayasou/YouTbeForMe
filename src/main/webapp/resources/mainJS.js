@@ -4,18 +4,23 @@ $('#list').on("click", function(e){
 });
 
 $('#download').on("click", function() {
-   var str = {};
+   var str = [];
 
     $('input:checkbox:checked').each(function(){
-        str.id = $(this).val();
+        var videoID = $(this).val();
+        console.log(videoID)
+        str.push("https://www.youtube.com/watch?v=" + videoID);
     });
 
     alert(str);
 
+
+    var ajaxData = {"videoID" : str};
     $.ajax({
         type: "POST",
         url : "/youtubedl/download",
-        data : {videoID : JSON.stringify(str)},
+        data :  ajaxData,
+        traditional : true,
         success: function() {
             alert("Complete Download");
         },

@@ -1,17 +1,6 @@
 package com.sapher.youtubedl.main;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
-
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.sapher.manageApp.DownloadVideo;
-import com.sapher.manageApp.WebCrawler;
-import com.sapher.youtubedl.YoutubeDL;
 import com.sapher.youtubedl.YoutubeDLException;
-import com.sapher.youtubedl.mapper.VideoInfo;
 import com.sun.deploy.Environment;
 
 public class Main {
@@ -31,18 +20,18 @@ public class Main {
 		System.out.println(env);
 		System.out.println( System.getProperty("os.name").toLowerCase());
 		System.out.println( System.getProperty("user.name").toLowerCase());
-		System.out.println(System.getenv());
+//		System.out.println(System.getenv());
 
-		String osName = System.getProperty("os.name");
+		String osName = System.getProperty("os.name").toLowerCase();
 		String user = System.getProperty("user.name");
 
-		osName = "window";
-
+//		osName = "window";
+		System.out.println(osName.contains("x"));
 		if(osName.contains("mac")) {
-			String downloadPath = "/Users/" + user + "/Downloads";
+			String downloadPath = "/Users/" + user + "/Downloads/";
 			System.out.println(downloadPath);
 		} else {
-			String downloadPath = "C:\\Users\\" + user + "\\Downloads";
+			String downloadPath = "C:\\Users\\" + user + "\\Downloads\\";
 			System.out.println(downloadPath);
 		}
 
@@ -53,7 +42,7 @@ public class Main {
 			for (String URL : urlList) {
 				videoInfos.add(YoutubeDL.getVideoInfo(URL));
 			}
-
+/Users/jisu/eclipse-workspace/youtubedl/src/main/java/com/sapher/youtubedl/main/Main.java
 
 		}*/
 

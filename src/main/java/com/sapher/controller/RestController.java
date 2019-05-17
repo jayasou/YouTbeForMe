@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.inject.Inject;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -27,10 +28,14 @@ public class RestController {
         return urlList;
     }
 
-    @RequestMapping(value="/download", produces = "application/text")
-    public String download(@RequestParam JSONArray videoID) {
-        System.out.println(videoID);
-        videoID.forEach(System.out::println);
+    @RequestMapping(value="/download", produces = "application/json")
+    public String download(@RequestParam List<String> videoID) {
+
+        String downloadPath = service.getDownloadPath();
+
+        service.download(videoID, downloadPath);
+
+
         return "Complete";
     }
 }

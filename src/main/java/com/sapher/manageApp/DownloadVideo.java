@@ -39,12 +39,12 @@ public class DownloadVideo {
 
         VideoInfo videoInfo = YoutubeDL.getVideoInfo(videoUrl);
         String downloadName = directory + videoInfo.id;
-        System.out.println(downloadName);
-        System.out.println(videoInfo.id);
+        System.out.println("downloadName : " + downloadName);
 
         File chkFile = new File(downloadName);
         if(chkFile.exists()) {
-            chkFile.renameTo(new File(directory + videoInfo.title + ".mp4"));
+            String fullName = "fullName ---> " + directory + videoInfo.title + ".mp4";
+            chkFile.renameTo(new File(fullName));
             System.out.println(directory + videoInfo.title + ".mp4");
         }
 
